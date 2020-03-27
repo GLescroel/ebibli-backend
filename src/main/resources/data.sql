@@ -22,3 +22,6 @@ INSERT INTO ouvrage(id, titre, resume) VALUES (10, 'Les plus belles histoires po
 INSERT INTO ouvrage(id, titre, resume) VALUES (11, 'Les 25 plus belles histoires de noël', 'Un recueil d"histoires de noël merveilleuses');
 INSERT INTO ouvrage(id, titre, resume) VALUES (12, 'Les 20 plus belles histoires à lire le soir', 'Un recueil d"histoires merveilleuses à lire au coucher pour aider les enfants à faire de beaux rêves');
 INSERT INTO ouvrage(id, titre, resume) VALUES (13, 'Les lettres de mon moulin', 'Un recueil de nouvelles champêtres d"Alphonse Daudet');
+INSERT INTO bibliotheque(id, nom) VALUES (1, 'Bibliotheque jeunesse');
+INSERT INTO bibliotheque(id, nom) VALUES (2, 'Bibliotheque adulte');
+INSERT INTO bibliotheque(id, nom) VALUES (3, 'Bibliotheque pour tous');
