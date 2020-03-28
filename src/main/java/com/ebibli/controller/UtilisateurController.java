@@ -1,7 +1,9 @@
 package com.ebibli.controller;
 
+import com.ebibli.dto.LivreDto;
 import com.ebibli.dto.UtilisateurDto;
 import com.ebibli.model.Utilisateur;
+import com.ebibli.service.LivreService;
 import com.ebibli.service.UtilisateurService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,16 +26,19 @@ public class UtilisateurController {
 
     @Autowired
     private UtilisateurService utilisateurService;
+    @Autowired
+    private LivreService livreService;
 
     @GetMapping(value = "/Utilisateurs")
     public ResponseEntity<List<Utilisateur>> getAllUsers() {
+        LOGGER.info("Dans UtilisateurController - getAllUsers");
         return new ResponseEntity<>(utilisateurService.getAllUsers(), HttpStatus.OK);
     }
 
     //TODO revoir le code si non trouvé et le gérer côté front
     @GetMapping(value = "/Utilisateur/{email}")
     public ResponseEntity<UtilisateurDto> checkIfUserExists(@PathVariable("email") String email) {
-        LOGGER.info("Dans LoginController - checkIfUserExists(" + email + ")");
+        LOGGER.info("Dans UtilisateurController - checkIfUserExists(" + email + ")");
         UtilisateurDto utilisateur = utilisateurService.getUserByEmail(email);
         if(utilisateur != null) {
             return new ResponseEntity<>(utilisateur, HttpStatus.OK);
@@ -44,7 +49,7 @@ public class UtilisateurController {
 
     @PostMapping(value = "/Utilisateur/creation")
     public ResponseEntity<Void> addUser(@RequestBody UtilisateurDto utilisateur) {
-        LOGGER.info("Dans LoginController - addUser");
+        LOGGER.info("Dans UtilisateurController - addUser");
         if (utilisateur == null) {
             return ResponseEntity.noContent().build();
         }
@@ -63,8 +68,14 @@ public class UtilisateurController {
 
     @PostMapping(value = "/Utilisateur/suppression")
     public ResponseEntity<Void> deleteUser(@RequestBody UtilisateurDto utilisateur) {
-        LOGGER.info("Dans LoginController - deleteUser");
+        LOGGER.info("Dans UtilisateurController - deleteUser");
         utilisateurService.delete(utilisateur);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping(value = "/Utilisateur/{id}/Emprunts")
+    public ResponseEntity<List<LivreDto>> getEmpruntsUtilisateur(@PathVariable Integer id) {
+        LOGGER.info("Dans UtilisateurController - getEmpruntsUtilisateur");
+        return new ResponseEntity<>(livreService.getEmpruntsByUser(id), HttpStatus.OK);
     }
 }

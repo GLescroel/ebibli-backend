@@ -25,3 +25,6 @@ INSERT INTO ouvrage(id, titre, resume) VALUES (13, 'Les lettres de mon moulin', 
 INSERT INTO bibliotheque(id, nom) VALUES (1, 'Bibliotheque jeunesse');
 INSERT INTO bibliotheque(id, nom) VALUES (2, 'Bibliotheque adulte');
 INSERT INTO bibliotheque(id, nom) VALUES (3, 'Bibliotheque pour tous');
+INSERT INTO livre(id, ouvrage_id, bibliotheque_id, disponible, emprunteur_id, date_Emprunt, date_Retour_Prevu, Prolonge) VALUES (1, 1, 1, true, null, null, null, null );
+INSERT INTO livre(id, ouvrage_id, bibliotheque_id, disponible, emprunteur_id, date_Emprunt, date_Retour_Prevu, Prolonge) VALUES (2, 2, 1, false, 4, '2020-03-28', '2020-04-28', null );
+INSERT INTO livre(id, ouvrage_id, bibliotheque_id, disponible, emprunteur_id, date_Emprunt, date_Retour_Prevu, Prolonge) VALUES (3, 3, 1, false, 4, '2020-03-28', '2020-04-28', null );
