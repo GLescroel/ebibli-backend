@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -30,5 +32,25 @@ public class LivreController {
     public ResponseEntity<List<LivreDto>> getAllLivresDispo() {
         LOGGER.info("Dans LivreController - getAllLivresDispo");
         return new ResponseEntity<>(livreService.getAllLivresDispo(), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/Livre/{id}")
+    public ResponseEntity<LivreDto> getLivre(@PathVariable ("id") Integer id) {
+        LOGGER.info("Dans LivreController - getLivre");
+        return new ResponseEntity<>(livreService.getLivre(id), HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/emprunt/{livreId}/{emprunteurId}")
+    public ResponseEntity<LivreDto> takeLivre(@PathVariable ("emprunteurId") Integer emprunteurId,
+    @PathVariable ("livreId") Integer livreId) {
+        LOGGER.info("Dans LivreController - takeLivre");
+        return new ResponseEntity<>(livreService.takeLivre(emprunteurId, livreId), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/retour/{bibliothequeId}/{livreId}")
+    public ResponseEntity<LivreDto> returnLivre(@PathVariable ("bibliothequeId") Integer bibliothequeId,
+                                                     @PathVariable ("livreId") Integer livreId) {
+        LOGGER.info("Dans LivreController - returnLivre");
+        return new ResponseEntity<>(livreService.returnLivre(bibliothequeId, livreId), HttpStatus.OK);
     }
 }
