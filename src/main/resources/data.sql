@@ -29,3 +29,5 @@ INSERT INTO livre(id, ouvrage_id, bibliotheque_id, disponible, emprunteur_id, da
 INSERT INTO livre(id, ouvrage_id, bibliotheque_id, disponible, emprunteur_id, date_Emprunt, date_Retour_Prevu, Prolonge) VALUES (2, 2, 1, false, 4, '2020-03-28', '2020-04-28', null );
 INSERT INTO livre(id, ouvrage_id, bibliotheque_id, disponible, emprunteur_id, date_Emprunt, date_Retour_Prevu, Prolonge) VALUES (3, 3, 1, false, 4, '2020-03-28', '2020-04-28', null );
 INSERT INTO livre(id, ouvrage_id, bibliotheque_id, disponible, emprunteur_id, date_Emprunt, date_Retour_Prevu, Prolonge) VALUES (4, 1, 1, true, null, null, null, null );
+INSERT INTO livre(id, ouvrage_id, bibliotheque_id, disponible, emprunteur_id, date_Emprunt, date_Retour_Prevu, Prolonge) VALUES (5, 2, 3, false, 6, '2020-03-28', '2020-05-28', true );
+INSERT INTO livre(id, ouvrage_id, bibliotheque_id, disponible, emprunteur_id, date_Emprunt, date_Retour_Prevu, Prolonge) VALUES (6, 5, 3, false, 6, '2020-03-28', '2020-04-28', false );

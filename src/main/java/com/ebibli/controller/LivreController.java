@@ -47,7 +47,7 @@ public class LivreController {
         return new ResponseEntity<>(livreService.takeLivre(emprunteurId, livreId), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/retour/{bibliothequeId}/{livreId}")
+    @PostMapping(value = "/retour/{bibliothequeId}/{livreId}")
     public ResponseEntity<LivreDto> returnLivre(@PathVariable ("bibliothequeId") Integer bibliothequeId,
                                                      @PathVariable ("livreId") Integer livreId) {
         LOGGER.info("Dans LivreController - returnLivre");
