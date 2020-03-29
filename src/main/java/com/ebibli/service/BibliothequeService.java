@@ -20,4 +20,8 @@ public class BibliothequeService {
     public List<BibliothequeDto> getAllBibliotheques() {
         return BIBLIOTHEQUE_MAPPER.bibliothequesToBibliothequeDtos(bibliothequeRepository.findAll());
     }
+
+    public BibliothequeDto getBibliotheques(Integer bibliothequeId) {
+        return BIBLIOTHEQUE_MAPPER.map(bibliothequeRepository.getOne(bibliothequeId));
+    }
 }

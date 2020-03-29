@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -24,5 +25,11 @@ public class BibliothequeController {
     public ResponseEntity<List<BibliothequeDto>> getAllBibliotheques() {
         LOGGER.info("Dans BibliothequeController - getAllBibliotheques");
         return new ResponseEntity<>(bibliothequeService.getAllBibliotheques(), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/Bibliotheque/{id}")
+    public ResponseEntity<BibliothequeDto> getBibliotheque(@PathVariable ("id") Integer bibliothequeId) {
+        LOGGER.info("Dans BibliothequeController - getBibliotheque");
+        return new ResponseEntity<>(bibliothequeService.getBibliotheques(bibliothequeId), HttpStatus.OK);
     }
 }
