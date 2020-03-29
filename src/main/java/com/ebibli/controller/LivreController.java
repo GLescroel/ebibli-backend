@@ -40,6 +40,12 @@ public class LivreController {
         return new ResponseEntity<>(livreService.getLivre(id), HttpStatus.OK);
     }
 
+    @GetMapping(value = "/Livres/{id}")
+    public ResponseEntity<List<LivreDto>> getLivresByBibliotheque(@PathVariable ("id") Integer id) {
+        LOGGER.info("Dans LivreController - getLivresByBibliotheque");
+        return new ResponseEntity<>(livreService.getLivresByBibliotheque(id), HttpStatus.OK);
+    }
+
     @PostMapping(value = "/emprunt/{livreId}/{emprunteurId}")
     public ResponseEntity<LivreDto> takeLivre(@PathVariable ("emprunteurId") Integer emprunteurId,
     @PathVariable ("livreId") Integer livreId) {

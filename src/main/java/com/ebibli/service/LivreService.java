@@ -63,4 +63,8 @@ public class LivreService {
     public LivreDto getLivre(int id) {
         return LIVRE_MAPPER.map(livreRepository.getOne(id));
     }
+
+    public List<LivreDto> getLivresByBibliotheque(Integer id) {
+        return LIVRE_MAPPER.livresToLivreDtos(livreRepository.findAllByBibliotheque_IdOrderByOuvrageAsc(id));
+    }
 }
