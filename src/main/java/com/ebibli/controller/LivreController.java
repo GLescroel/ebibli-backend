@@ -59,4 +59,10 @@ public class LivreController {
         LOGGER.info("Dans LivreController - returnLivre");
         return new ResponseEntity<>(livreService.returnLivre(bibliothequeId, livreId), HttpStatus.OK);
     }
+
+    @PostMapping(value = "/prolongation/{livreId}")
+    public ResponseEntity<LivreDto> upgradePret(@PathVariable ("livreId") Integer livreId) {
+        LOGGER.info("Dans LivreController - upgradePret");
+        return new ResponseEntity<>(livreService.upgradePret(livreId), HttpStatus.OK);
+    }
 }

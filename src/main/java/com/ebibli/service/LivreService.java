@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.List;
 
 @Service
@@ -66,5 +67,12 @@ public class LivreService {
 
     public List<LivreDto> getLivresByBibliotheque(Integer id) {
         return LIVRE_MAPPER.livresToLivreDtos(livreRepository.findAllByBibliotheque_IdOrderByOuvrageAsc(id));
+    }
+
+    public LivreDto upgradePret(Integer livreId) {
+        LivreDto livre = LIVRE_MAPPER.map(livreRepository.findById(livreId).get());
+        livre.setDateRetourPrevu(Date.valueOf(livre.getDateRetourPrevu().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().plusWeeks(4)));
+        livre.setProlonge(true);
+        return LIVRE_MAPPER.map(livreRepository.save(LIVRE_MAPPER.map(livre)));
     }
 }
