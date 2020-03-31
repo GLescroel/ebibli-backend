@@ -21,13 +21,13 @@ public class BibliothequeController {
     @Autowired
     private BibliothequeService bibliothequeService;
 
-    @GetMapping(value = "/Bibliotheques")
+    @GetMapping(value = "/bibliotheques")
     public ResponseEntity<List<BibliothequeDto>> getAllBibliotheques() {
         LOGGER.info("Dans BibliothequeController - getAllBibliotheques");
         return new ResponseEntity<>(bibliothequeService.getAllBibliotheques(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/Bibliotheque/{id}")
+    @GetMapping(value = "/bibliotheque/{id}")
     public ResponseEntity<BibliothequeDto> getBibliotheque(@PathVariable ("id") Integer bibliothequeId) {
         LOGGER.info("Dans BibliothequeController - getBibliotheque");
         return new ResponseEntity<>(bibliothequeService.getBibliotheques(bibliothequeId), HttpStatus.OK);

@@ -22,25 +22,25 @@ public class LivreController {
     @Autowired
     private LivreService livreService;
 
-    @GetMapping(value = "/Livres")
+    @GetMapping(value = "/livres")
     public ResponseEntity<List<LivreDto>> getAllLivres() {
         LOGGER.info("Dans LivreController - getAllLivres");
         return new ResponseEntity<>(livreService.getAllLivres(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/LivresDispo")
+    @GetMapping(value = "/livresDispo")
     public ResponseEntity<List<LivreDto>> getAllLivresDispo() {
         LOGGER.info("Dans LivreController - getAllLivresDispo");
         return new ResponseEntity<>(livreService.getAllLivresDispo(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/Livre/{id}")
+    @GetMapping(value = "/livre/{id}")
     public ResponseEntity<LivreDto> getLivre(@PathVariable ("id") Integer id) {
         LOGGER.info("Dans LivreController - getLivre");
         return new ResponseEntity<>(livreService.getLivre(id), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/Livres/{id}")
+    @GetMapping(value = "/livres/{id}")
     public ResponseEntity<List<LivreDto>> getLivresByBibliotheque(@PathVariable ("id") Integer id) {
         LOGGER.info("Dans LivreController - getLivresByBibliotheque");
         return new ResponseEntity<>(livreService.getLivresByBibliotheque(id), HttpStatus.OK);
@@ -51,6 +51,12 @@ public class LivreController {
     @PathVariable ("livreId") Integer livreId) {
         LOGGER.info("Dans LivreController - takeLivre");
         return new ResponseEntity<>(livreService.takeLivre(emprunteurId, livreId), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/emprunts/{id}")
+    public ResponseEntity<List<LivreDto>> getEmpruntsUtilisateur(@PathVariable Integer id) {
+        LOGGER.info("Dans UtilisateurController - getEmpruntsUtilisateur");
+        return new ResponseEntity<>(livreService.getEmpruntsByUser(id), HttpStatus.OK);
     }
 
     @PostMapping(value = "/retour/{bibliothequeId}/{livreId}")

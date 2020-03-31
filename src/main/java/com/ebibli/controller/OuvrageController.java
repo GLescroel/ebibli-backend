@@ -20,7 +20,7 @@ public class OuvrageController {
     @Autowired
     private OuvrageService ouvrageService;
 
-    @GetMapping(value = "/Ouvrages")
+    @GetMapping(value = "/ouvrages")
     public ResponseEntity<List<OuvrageDto>> getAllTitles() {
         LOGGER.info("Dans OuvrageController - getAllTitles");
         return new ResponseEntity<>(ouvrageService.getAllTitles(), HttpStatus.OK);
