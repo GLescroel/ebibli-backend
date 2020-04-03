@@ -16,4 +16,5 @@ public class OuvrageDto {
     private Integer id;
     private String titre;
     private String resume;
+    private String image;
 }
