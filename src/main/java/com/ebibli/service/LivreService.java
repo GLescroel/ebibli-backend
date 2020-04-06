@@ -71,6 +71,9 @@ public class LivreService {
 
     public LivreDto upgradePret(Integer livreId) {
         LivreDto livre = LIVRE_MAPPER.map(livreRepository.findById(livreId).get());
+        if(livre.getProlonge() == true) {
+            return LIVRE_MAPPER.map(livreRepository.getOne(livreId));
+        }
         livre.setDateRetourPrevu(Date.valueOf(livre.getDateRetourPrevu().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().plusWeeks(4)));
         livre.setProlonge(true);
         return LIVRE_MAPPER.map(livreRepository.save(LIVRE_MAPPER.map(livre)));
