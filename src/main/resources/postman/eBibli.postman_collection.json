@@ -1,0 +1,324 @@
+{
+	"info": {
+		"_postman_id": "abbaa0a9-63c1-4533-a246-f86879f2b0fd",
+		"name": "eBibli",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllUsers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "034b7898-e429-42f4-8539-87b5d10dc2f2",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/utilisateurs",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"utilisateurs"
+					]
+				},
+				"description": "Récupère tous les utilisateurs enregistrés en base"
+			},
+			"response": []
+		},
+		{
+			"name": "getUserByEmail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/utilisateur/membre@oc.com",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"utilisateur",
+						"membre@oc.com"
+					]
+				},
+				"description": "Récupère un utilisateur en base par son email"
+			},
+			"response": []
+		},
+		{
+			"name": "addUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": null,\r\n    \"nom\": \"PostMan\",\r\n    \"prenom\": \"postman\",\r\n    \"email\": \"postman@oc.com\",\r\n    \"password\": \"abcdefghijklmnopqrstuvwxyz\",\r\n    \"role\": {\r\n    \t\"id\": 1,\r\n        \"role\": \"Administrateur\"\r\n\t}\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/utilisateur/creation",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"utilisateur",
+						"creation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"nom\": \"Admin\",\r\n    \"prenom\": \"Admin\",\r\n    \"email\": \"admin@oc.com\",\r\n    \"password\": \"$2a$11$NWK4enrvaXbcLu0Hf4eVIe3cdNk82VO6BvfNx7UMBeHYGJjQcFMQi\",\r\n    \"role\": {\r\n    \t\"id\": 1,\r\n        \"role\": \"Administrateur\"\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/utilisateur/suppression",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"utilisateur",
+						"suppression"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllOuvrages",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/ouvrages",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"ouvrages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllBibliotheques",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/bibliotheques",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"bibliotheques"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBibliotheque",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/bibliotheque/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"bibliotheque",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllLivres",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/livres",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"livres"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getLivresByBibliotheque",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/livres/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"livres",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllLivresDispo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/livresDispo",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"livresDispo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getEmpruntsByUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/emprunts/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"emprunts",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getLivreById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/livre/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"livre",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "empruntLivre",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/emprunt/4/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"emprunt",
+						"4",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "prolongationEmprunt",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/prolongation/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"prolongation",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "retourLivre",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/retour/1/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"retour",
+						"1",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
