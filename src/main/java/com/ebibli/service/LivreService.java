@@ -78,4 +78,8 @@ public class LivreService {
         }
         return LIVRE_MAPPER.map(livreRepository.getOne(livreId));
     }
+
+    public List<LivreDto> getAllLivresEnRetard() {
+        return LIVRE_MAPPER.livresToLivreDtos(livreRepository.findAllByDateRetourPrevuBeforeOrderByEmprunteur(Date.valueOf(LocalDate.now())));
+    }
 }
