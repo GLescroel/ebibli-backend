@@ -14,7 +14,16 @@
     <groupId>com.ebibli</groupId>
     <artifactId>ebibli-backend</artifactId>
     <version>1.0</version>
-    <packaging>war</packaging>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>ebibli-model</module>
+        <module>ebibli-service-ouvrage</module>
+        <module>ebibli-service-livre</module>
+        <module>ebibli-service-utilisateur</module>
+        <module>ebibli-service-bibliotheque</module>
+        <module>ebibli-service-emprunt</module>
+    </modules>
 
     <properties>
         <start-class>com.ebibli.MicrobibliApplication</start-class>
@@ -70,21 +79,6 @@
             <artifactId>jquery</artifactId>
             <version>3.4.1</version>
         </dependency>
-
-        <!--- Mapstruct for mappers -->
-        <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct</artifactId>
-            <version>${org.mapstruct.version}</version>
-        </dependency>
-
-        <!--- Lombok for builders, getters and setters -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${org.projectlombok.version}</version>
-        </dependency>
-
     </dependencies>
 
     <build>
