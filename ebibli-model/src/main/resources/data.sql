@@ -34,13 +34,13 @@ INSERT INTO livre(id, ouvrage_id, bibliotheque_id, disponible) VALUES (2, 2, 1, 
 INSERT INTO livre(id, ouvrage_id, bibliotheque_id, disponible) VALUES (3, 3, 1, false );
 INSERT INTO livre(id, ouvrage_id, bibliotheque_id, disponible) VALUES (4, 1, 1, true );
 INSERT INTO livre(id, ouvrage_id, bibliotheque_id, disponible) VALUES (5, 2, 3, false );
-INSERT INTO livre(id, ouvrage_id, bibliotheque_id, disponible) VALUES (6, 5, 3, true);
-INSERT INTO livre(id, ouvrage_id, bibliotheque_id, disponible) VALUES (7, 4, 1, true);
+INSERT INTO livre(id, ouvrage_id, bibliotheque_id, disponible) VALUES (6, 5, 3, false);
+INSERT INTO livre(id, ouvrage_id, bibliotheque_id, disponible) VALUES (7, 4, 1, false);
 INSERT INTO livre(id, ouvrage_id, bibliotheque_id, disponible) VALUES (8, 6, 3, true);
-INSERT INTO livre(id, ouvrage_id, bibliotheque_id, disponible) VALUES (9, 7, 1, true);
+INSERT INTO livre(id, ouvrage_id, bibliotheque_id, disponible) VALUES (9, 7, 1, false);
 INSERT INTO livre(id, ouvrage_id, bibliotheque_id, disponible) VALUES (10, 8, 3, true);
-INSERT INTO livre(id, ouvrage_id, bibliotheque_id, disponible) VALUES (11, 14, 2, true);
-INSERT INTO livre(id, ouvrage_id, bibliotheque_id, disponible) VALUES (12, 15, 2, true);
+INSERT INTO livre(id, ouvrage_id, bibliotheque_id, disponible) VALUES (11, 14, 2, false);
+INSERT INTO livre(id, ouvrage_id, bibliotheque_id, disponible) VALUES (12, 15, 2, false);
 INSERT INTO livre(id, ouvrage_id, bibliotheque_id, disponible) VALUES (13, 16, 2, true);
 INSERT INTO livre(id, ouvrage_id, bibliotheque_id, disponible) VALUES (14, 9, 1, true);
 INSERT INTO livre(id, ouvrage_id, bibliotheque_id, disponible) VALUES (15, 10, 3, true);

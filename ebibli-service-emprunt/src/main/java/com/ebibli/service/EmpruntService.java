@@ -77,6 +77,9 @@ public class EmpruntService {
         }
         emprunt.setDateRetourPrevu(Date.valueOf(emprunt.getDateRetourPrevu().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().plusWeeks(4)));
         emprunt.setProlonge(true);
+        if (emprunt.getDateRetourPrevu().after(Date.valueOf(LocalDate.now()))) {
+            emprunt.setEnRetard(false);
+        }
         return EMPRUNT_MAPPER.map(empruntRepository.save(EMPRUNT_MAPPER.map(emprunt)));
     }
 
