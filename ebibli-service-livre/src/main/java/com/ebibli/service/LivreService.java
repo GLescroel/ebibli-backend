@@ -41,4 +41,8 @@ public class LivreService {
         }
         return livre;
     }
+
+    public List<LivreDto> getAllLivresDispoByOuvrage(Integer ouvrageId) {
+        return LIVRE_MAPPER.livresToLivreDtos(livreRepository.findLivresByOuvrage_IdAndDisponibleIsTrueOrderByBibliotheque(ouvrageId));
+    }
 }

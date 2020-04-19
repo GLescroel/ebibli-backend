@@ -34,6 +34,12 @@ public class LivreController {
         return new ResponseEntity<>(livreService.getAllLivresDispo(), HttpStatus.OK);
     }
 
+    @GetMapping(value = "/livresDispo/ouvrage/{ouvrageId}")
+    public ResponseEntity<List<LivreDto>> getAllLivresDispoByOuvrage(@PathVariable ("ouvrageId") Integer ouvrageId) {
+        LOGGER.info("Dans LivreController - getAllLivresDispoByOuvrage");
+        return new ResponseEntity<>(livreService.getAllLivresDispoByOuvrage(ouvrageId), HttpStatus.OK);
+    }
+
     @GetMapping(value = "/livre/{id}")
     public ResponseEntity<LivreDto> getLivre(@PathVariable ("id") Integer id) {
         LOGGER.info("Dans LivreController - getLivre");
