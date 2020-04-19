@@ -22,4 +22,7 @@ public class OuvrageService {
     }
 
 
+    public List<OuvrageDto> filterTitles(String recherche) {
+        return OUVRAGE_MAPPER.ouvragesToouvrageDtos(ouvrageRepository.findOuvragesByTitreContainsOrderByTitre(recherche));
+    }
 }
