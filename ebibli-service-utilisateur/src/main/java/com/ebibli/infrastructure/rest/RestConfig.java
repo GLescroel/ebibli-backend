@@ -16,4 +16,9 @@ public class RestConfig {
     public EmpruntClient restEmprunt(EmpruntClientApi empruntClientApi) {
         return new RestEmpruntClient(empruntClientApi);
     }
+
+    @Bean
+    public CustomErrorDecoder customErrorDecoder() {
+        return new CustomErrorDecoder();
+    }
 }

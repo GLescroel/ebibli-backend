@@ -43,11 +43,16 @@ public class LivreController {
     @GetMapping(value = "/livre/{id}")
     public ResponseEntity<LivreDto> getLivre(@PathVariable ("id") Integer id) {
         LOGGER.info("Dans LivreController - getLivre");
-        return new ResponseEntity<>(livreService.getLivre(id), HttpStatus.OK);
+        LivreDto livre = livreService.getLivre(id);
+        if (livre != null) {
+            return new ResponseEntity<>(livre, HttpStatus.OK);
+        } else {
+            return ResponseEntity.noContent().build();
+        }
     }
 
-    @GetMapping(value = "/livres/{id}")
-    public ResponseEntity<List<LivreDto>> getLivresByBibliotheque(@PathVariable ("id") Integer id) {
+    @GetMapping(value = "/livres/{bibliothequeId}")
+    public ResponseEntity<List<LivreDto>> getLivresByBibliotheque(@PathVariable ("bibliothequeId") Integer id) {
         LOGGER.info("Dans LivreController - getLivresByBibliotheque");
         return new ResponseEntity<>(livreService.getLivresByBibliotheque(id), HttpStatus.OK);
     }

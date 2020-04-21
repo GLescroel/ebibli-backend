@@ -30,6 +30,11 @@ public class BibliothequeController {
     @GetMapping(value = "/bibliotheque/{id}")
     public ResponseEntity<BibliothequeDto> getBibliotheque(@PathVariable ("id") Integer bibliothequeId) {
         LOGGER.info("Dans BibliothequeController - getBibliotheque");
-        return new ResponseEntity<>(bibliothequeService.getBibliotheques(bibliothequeId), HttpStatus.OK);
+        BibliothequeDto bibliotheque = bibliothequeService.getBibliotheque(bibliothequeId);
+        if (bibliotheque != null) {
+            return new ResponseEntity<>(bibliotheque, HttpStatus.OK);
+        } else {
+            return ResponseEntity.noContent().build();
+        }
     }
 }

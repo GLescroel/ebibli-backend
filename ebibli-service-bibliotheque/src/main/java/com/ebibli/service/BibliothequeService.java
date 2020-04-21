@@ -21,7 +21,7 @@ public class BibliothequeService {
         return BIBLIOTHEQUE_MAPPER.bibliothequesToBibliothequeDtos(bibliothequeRepository.findAll());
     }
 
-    public BibliothequeDto getBibliotheques(Integer bibliothequeId) {
+    public BibliothequeDto getBibliotheque(Integer bibliothequeId) {
         return BIBLIOTHEQUE_MAPPER.map(bibliothequeRepository.getOne(bibliothequeId));
     }
 }

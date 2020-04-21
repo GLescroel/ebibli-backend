@@ -1,7 +1,7 @@
 package com.ebibli.controller;
 
-import com.ebibli.dto.UtilisateurDto;
 import com.ebibli.domain.Utilisateur;
+import com.ebibli.dto.UtilisateurDto;
 import com.ebibli.service.UtilisateurService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,7 +43,11 @@ public class UtilisateurController {
     public ResponseEntity<UtilisateurDto> getUtilisateurById(@PathVariable("id") Integer id) {
         LOGGER.info("Dans UtilisateurController - getUtilisateurById(" + id + ")");
         UtilisateurDto utilisateur = utilisateurService.getUtlisateurById(id);
-        return new ResponseEntity<>(utilisateur, HttpStatus.OK);
+        if (utilisateur == null) {
+            return ResponseEntity.badRequest().build();
+        } else {
+            return new ResponseEntity<>(utilisateur, HttpStatus.OK);
+        }
     }
 
 
@@ -62,13 +66,16 @@ public class UtilisateurController {
                     .toUri())
                     .build();
         } else {
-            return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
     @PostMapping(value = "/utilisateur/suppression")
     public ResponseEntity<Boolean> deleteUser(@RequestBody UtilisateurDto utilisateur) {
         LOGGER.info("Dans UtilisateurController - deleteUser");
+        if (utilisateur == null) {
+            return ResponseEntity.noContent().build();
+        }
         if (utilisateurService.delete(utilisateur)) {
             return new ResponseEntity<>(true, HttpStatus.OK);
         } else {

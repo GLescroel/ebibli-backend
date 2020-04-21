@@ -26,7 +26,12 @@ public class EmpruntController {
     public ResponseEntity<EmpruntDto> takeLivre(@PathVariable ("livreId") Integer livreId,
                                                 @PathVariable ("emprunteurId") Integer emprunteurId) {
         LOGGER.info("Dans EmpruntController - takeLivre");
-        return new ResponseEntity<>(empruntService.newPret(emprunteurId, livreId), HttpStatus.OK);
+        EmpruntDto empruntCree = empruntService.newPret(emprunteurId, livreId);
+        if (empruntCree == null) {
+            return ResponseEntity.badRequest().build();
+        } else {
+            return new ResponseEntity<>(empruntCree, HttpStatus.CREATED);
+        }
     }
 
     @PostMapping(value = "/retour/{bibliothequeId}/{livreId}")
