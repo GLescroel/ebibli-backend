@@ -1,7 +1,7 @@
 eBibli-backend
 
 Backend du système d'information des bibliothèques de la ville à destination des usagers et des bibliothécaires.
-Les différents clients interrogent ce backend via les API Rest exposées.
+Les différents clients interrogent les microservices de ce backend via les API Rest exposées.
 
 Pré-requis technique
 
@@ -14,18 +14,28 @@ Base de données : PostgresSQL
 Installation et déploiement:
 
 Packaging
-mvn clean package : le fichier ebibli-backend-1.0.war qui contient l'application est généré
+mvn clean package du root : les fichiers war de chaque application microservice sont générés :
+- ebibli-service-utilisateur-1.0.war
+- ebibli-service-bibliotheque-1.0.war
+- ebibli-service-ouvrage-1.0.war
+- ebibli-service-livre-1.0.war
+- ebibli-service-emprunt-1.0.war
 
-Il est maintenant possible de lancer l'application directement dans votre IDE en exécutant le Main
-ou en ligne de commande (application standalone intégrant un conteneur web grace à SpringBoot) : mvn clean install spring-boot:run
-ou de déployer le war dans un tomcat.
+Il est maintenant possible de lancer ces applications directement dans votre IDE en exécutant le Main
+ou en ligne de commande (applications standalones intégrant un conteneur web grace à SpringBoot) : mvn clean install spring-boot:run
+ou de déployer ces war dans un tomcat.
 
-Le port de l'Application est paramétré dans application.propertie : http://localhost:8081/
+Les port des applications sont paramétrés dans les fichiers application.propertie de chaque application : http://localhost:8081/
+- ebibli-service-utilisateur : 9003
+- ebibli-service-bibliotheque : 9004
+- ebibli-service-ouvrage-1.0 : 9001
+- ebibli-service-livre-1.0 : 9002
+- ebibli-service-emprunt-1.0 : 9005
 
-L'application est livrée avec 1 configuration
-•dev et prod avec une base de données PostgreSQL peuplée avec le contenu du script src\resources\data.sql. 
+Les applications sont livrées avec 1 configuration
+•dev et prod avec une base de données PostgreSQL peuplée avec le contenu du script src\resources\data.sql présent dans le module model. 
 La base sera créée automatiquement au premier lancement.
-En prod, il faudra ensuite modifier le ddl-auto=update dans le fichier application.properties pour qu'elle ne se recrée pas à chaque démarrage.
+En prod, il faudra ensuite modifier le ddl-auto=update dans les fichiers application.properties pour qu'elle ne se recrée pas à chaque démarrage.
 
 Documentation : la javadoc peut être générée via la commande mvn javadoc:javadoc puis consultée à partir de la page \target\site\apidocs\index.html
 
