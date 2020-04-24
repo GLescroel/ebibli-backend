@@ -18,4 +18,7 @@ public interface LivreClientApi {
 
     @PostMapping(value = "/livre/{livreId}/emprunt")
     LivreDto setIndisponible(@PathVariable("livreId") Integer id);
+
+    @PostMapping(value = "/livre/{livreId}/retour")
+    LivreDto setDisponible(@PathVariable ("livreId") Integer livreId);
 }

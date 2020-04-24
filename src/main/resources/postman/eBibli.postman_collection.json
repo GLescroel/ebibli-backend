@@ -321,6 +321,26 @@
 			"response": []
 		},
 		{
+			"name": "setDisponible",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:9002/livre/4/retour",
+					"host": [
+						"localhost"
+					],
+					"port": "9002",
+					"path": [
+						"livre",
+						"4",
+						"retour"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "empruntLivre",
 			"request": {
 				"method": "POST",

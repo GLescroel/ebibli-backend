@@ -45,4 +45,13 @@ public class LivreService {
     public List<LivreDto> getAllLivresDispoByOuvrage(Integer ouvrageId) {
         return LIVRE_MAPPER.livresToLivreDtos(livreRepository.findLivresByOuvrage_IdAndDisponibleIsTrueOrderByBibliotheque(ouvrageId));
     }
+
+    public LivreDto setRetour(Integer livreId) {
+        LivreDto livre = LIVRE_MAPPER.map(livreRepository.findById(livreId).get());
+        if (livre != null) {
+            livre.setDisponible(true);
+            livre = LIVRE_MAPPER.map(livreRepository.save(LIVRE_MAPPER.map(livre)));
+        }
+        return livre;
+    }
 }

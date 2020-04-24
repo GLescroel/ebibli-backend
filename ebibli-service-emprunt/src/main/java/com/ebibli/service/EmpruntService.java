@@ -1,9 +1,9 @@
 package com.ebibli.service;
 
-import com.ebibli.dto.EmpruntDto;
-import com.ebibli.mapper.EmpruntMapper;
 import com.ebibli.domain.LivreClient;
 import com.ebibli.domain.UtilisateurClient;
+import com.ebibli.dto.EmpruntDto;
+import com.ebibli.mapper.EmpruntMapper;
 import com.ebibli.repository.EmpruntRepository;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,6 +64,9 @@ public class EmpruntService {
         }
         emprunt.setEncours(false);
         emprunt.setDateRetour(Date.valueOf(LocalDate.now()));
+
+        emprunt.setLivre(livreClient.setDisponible(livreId));
+
         return EMPRUNT_MAPPER.map(empruntRepository.save(EMPRUNT_MAPPER.map(emprunt)));
     }
 
